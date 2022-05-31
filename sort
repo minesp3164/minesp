@@ -1,0 +1,31 @@
+def main():
+    value = []
+    judge = 'true'
+    while judge == 'true':
+        newint = int(input("리스트를 채울 양수를 입력하시오 음수가 나오면 종료됩니다:"))
+        if newint >= 0 :
+            value.append(newint)
+        else :
+            print("이제 정렬로 넘어갑니다.")
+            break
+    sorting(value)
+    
+    
+def sorting(value):
+    com = []
+    largest = 0
+    for i in range(len(value)):
+        if largest < value[i]:
+            largest = value[i]
+    small = largest
+    while len(value) != 0 :
+        for i in range(len(value)):
+            if small >= value[i]:
+                small = value[i]
+                temp = i
+        com.append(small)
+        small = largest
+        value.pop(temp)
+        print(com)
+
+main()
