@@ -1,0 +1,39 @@
+## 2022 05 31 
+# bubble sort
+
+def main():
+    value = []
+    judge = 'true'
+    while judge == 'true':
+        newint = int(input("리스트를 채울 양수를 입력하시오 음수가 나오면 종료됩니다:"))
+        if newint >= 0 :
+            value.append(newint)
+        else :
+            overlap(value)
+            print("이제 정렬로 넘어갑니다.")
+            break
+    sorting(value)
+
+def sorting(value):
+    for e in range(len(value)):
+        for i in range(len(value)-1):
+            swap(value,i,i+1)
+            print(value)
+
+def overlap(value):
+    i = 0
+    while len(value) > i:
+        stan = value[i]
+        for e in range(i+1,len(value)):
+            if stan == value[e]:
+                value.pop(e)
+    i += 1
+    print("중복을 제거 했습니다.")
+
+def swap(a,i,j) :
+    if a[i] < a[j]:
+        temp = a[i]
+        a[i] = a[j]
+        a[j] = temp
+
+main()
